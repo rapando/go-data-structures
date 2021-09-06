@@ -1,11 +1,3 @@
-# Data structures
-
-This is a collection of data structures. To run tests:
-
-```
-go test ./... -v
-```
-
 ## 1. Stacks
 
 ```go
@@ -34,7 +26,3 @@ item, err := stack.Pop() // pops "Hello"
 item, err := stack.Pop() // pops "Name"
 item, err := stack.Pop() // err is not nil because the stack is now empt
 ```
-
-Cheers! 
-
-> [_rapando](https://twitter.com/_rapando)
