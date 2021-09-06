@@ -7,7 +7,7 @@ import (
 var stack *Stack
 var size = 2
 
-func TestCreateStack(t *testing.T) {
+func TestInitializeStack(t *testing.T) {
 	var err error
 	stack, err = InitializeStack(size)
 	if err != nil {
@@ -39,7 +39,7 @@ func TestPush(t *testing.T) {
 func TestSize(t *testing.T) {
 	stackSize := stack.Size()
 	if stackSize != size {
-		t.Fatalf("stack size check failed. Expected %v, found %v", size, stackSize)
+		t.Fatalf("stack. size check failed. Expected %v, found %v", size, stackSize)
 	}
 }
 

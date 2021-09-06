@@ -21,6 +21,11 @@ func InitializeStack(size int) (*Stack, error) {
 	}, nil
 }
 
+// Size : returns the size of the current stack
+func (s *Stack) Size() int {
+	return len(s.items)
+}
+
 // isEmpty : returns true if stack is empty, false if otherwise
 func (s *Stack) isEmpty() bool {
 	return s.Size() == 0
@@ -31,10 +36,6 @@ func (s *Stack) isFull() bool {
 	return int(s.size) == s.Size()
 }
 
-// Size : returns the size of the current stack
-func (s *Stack) Size() int {
-	return len(s.items)
-}
 
 // Push : adds an item to the top of the stack stack
 func (s *Stack) Push(item interface{}) (err error) {
@@ -52,14 +53,15 @@ func (s *Stack) Pop() (item interface{}, err error) {
 		return nil, fmt.Errorf("stack is empty")
 	}
 
-	if s.Size() == 1 {
+	currentSize := s.Size()
+
+	if currentSize == 1 {
 		item = s.items[0]
 		s.top = nil
 		s.items = nil
 		return item, nil
 	}
 
-	currentSize := s.Size()
 	item = s.items[currentSize-1]
 	s.items = s.items[0 : currentSize-1]
 	s.top, err = s.Peek()
