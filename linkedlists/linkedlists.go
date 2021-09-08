@@ -3,13 +3,12 @@ package linkedlists
 import "fmt"
 
 type LinkedList struct {
-	length int
-	data   int
-	next   *LinkedList
+	data interface{}
+	next *LinkedList
 }
 
 // Initialize : creates a new linked list
-func InitializeLinkedList(data int) *LinkedList {
+func InitializeLinkedList(data interface{}) *LinkedList {
 	return &LinkedList{
 		data: data,
 		next: nil,
@@ -28,7 +27,7 @@ func (node *LinkedList) GetTail() *LinkedList {
 }
 
 // AddNode : adds a node to another node
-func (node *LinkedList) AddNode(data int) {
+func (node *LinkedList) AddNode(data interface{}) {
 	tail := node.GetTail()
 	tail.next = &LinkedList{
 		data: data,
@@ -38,15 +37,15 @@ func (node *LinkedList) AddNode(data int) {
 // Traverse: traverse through the linked list
 func (node *LinkedList) Traverse() (list string) {
 	for node.next != nil {
-		list += fmt.Sprintf("%d ", node.data)
+		list += fmt.Sprintf("%v ", node.data)
 		node = node.next
 	}
-	list += fmt.Sprintf("%d", node.data)
+	list += fmt.Sprintf("%v", node.data)
 	return list
 }
 
 // Search : search for data in a linked list
-func (node *LinkedList) Search(item int) (found bool, position int) {
+func (node *LinkedList) Search(item interface{}) (found bool, position int) {
 	for node.next != nil {
 		if node.data == item {
 			return true, position
