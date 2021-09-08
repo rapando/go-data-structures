@@ -82,6 +82,29 @@ fmt.Println("Dequeued : ", i)
 // Dequeued :  6
 // Dequeued :  <nil>
 ```
+
+---
+
+## 3. Linked Lists
+
+```go
+l := linkedlists.InitializeLinkedList(2)
+l.AddNode(4)
+l.AddNode(6)
+l.AddNode(8)
+
+fmt.Println(l.Traverse())
+fmt.Println("Tail :", l.GetTail())
+
+found, pos := l.Search(8)
+fmt.Println(found, pos)
+
+// 2 4 6 8
+// Tail : &{0 8 <nil>}
+// true 3
+
+```
+
 Cheers! 
 
 > [_rapando](https://twitter.com/_rapando)
